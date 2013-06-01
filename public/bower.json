@@ -1,0 +1,8 @@
+{
+  "name": "hak4co",
+  "version": "0.0.0",
+  "main": "app.js",
+  "dependencies" : {
+  	 "d3": "*"
+  }
+}

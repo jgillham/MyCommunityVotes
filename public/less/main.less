@@ -1,0 +1,231 @@
+// Core variables and mixins
+@import "variables.less";
+/* Desktops and laptops ----------- */
+@media only screen and (max-width : 1224px) {
+
+}
+/* 
+
+  main.css 
+  -------
+   
+*/
+
+// widths will either be 630 or 960 px
+// left link bar is 250 px
+
+*{
+	-webkit-transition: all @animation_time ease-in-out;
+	-moz-transition: all @animation_time ease-in-out;
+	-ms-transition: all @animation_time ease;
+	-o-transition: all @animation_time ease-in-out;
+	transition: all @animation_time ease-in-out;
+}
+.container{
+	max-width: @content_width;
+	// margin: 30px 30% 0 30% ;
+}
+/* 
+
+	table style
+	--------
+   
+*/
+#firstRow{
+	padding-top: 150px;
+}
+li.Name{
+    text-align: left;
+    margin-left: 45px;
+}
+li.Major{
+	margin-left: 65px;
+}
+li.Minor{
+	margin-left: 20px;
+}
+li.Concentration{
+	margin-left: -10px;
+}
+li.palette{
+	font-size: 10px;
+	padding-top: 0;
+	padding-bottom: 0;
+	padding-left: 15px;
+	padding-right: 10px;
+}
+li.Certification{
+	margin-left: -20px;
+}
+li.Licensure{
+	margin-left: -20px;
+}
+li.Phone{
+	margin-left: 25px;
+}
+li.palette {
+	margin-top: 0;
+	margin-bottom: 0;
+	padding-top: 0px;
+	padding-bottom:  0px;
+}
+#categories{
+	top: 305px;
+
+}
+td.Name{
+	width: 180px;
+}
+td.Name a{
+	max-width: 100px;
+	word-wrap: break-word
+}
+td.Major{
+	background-color: #BDC3C7;
+	// background-color: #F1C40F;
+}
+td.Minor{
+  // background-color: #E74C3C;
+  // background-color: #2ECC71;
+  background-color: #BDC3C7;
+}
+td.Concentration{
+	// background-color: #BDC3C7;
+	// background-color: #E67E22;
+	// background-color: #BDC3C7;
+}
+td.Certification{
+	// background-color: #9B59B6;
+	// background-color: #BDC3C7;
+}
+td.Phone {
+  // background-color: #F1C40F;
+	// background-color: #BDC3C7;/
+}
+
+td.Licensure {
+  // background-color:#E74C3C;
+  background-color: #BDC3C7;
+
+}
+td.Phone span{
+	font-size: 100%;
+}
+.inner{
+	width: @bw;
+	background-color: #ECF0F1;
+	border-bottom: 1px solid white;
+	border-right: 1px solid white;
+	text-align: center;
+
+}
+ul.nav{
+	width:630px;
+}
+
+tbody a {
+  color: white;
+  text-decoration: none;
+}
+tbody a:hover{
+  color: black;
+}
+
+
+/* 
+
+  search 
+  -----
+   
+*/
+.todo{
+	width: 100%;
+	padding-bottom: 50px;
+	margin-bottom: 0;
+	border-radius: 18px 18px 0 0px;
+}
+.todo-search-field{
+	width: 100%;
+}
+/* 
+
+  floating purple box 
+  ---------------
+   
+*/
+#program_count {
+	  border-radius: 18px 0 0 18px;
+	  position: absolute;
+	  width: 315px;
+}
+#program_count span{
+	  position: fixed;
+	  top: 450px;
+	  right:0;
+}
+/* 
+
+  filter by type box 
+  --------------
+   
+*/
+
+// column width, column gap vars
+@cw : 34px;
+@cg  : 25px;
+
+.demo-panel-title {
+	margin-bottom:inherit;
+	padding-top: inherit;
+}
+.wrapper h3{
+	width: 110px;
+	height: 10px;
+}
+.wrapper  > *:not(h3) { 
+	margin-left: 130px;
+	// border:2px solid red;
+	height:40px;
+	width: @content_width;
+	-webkit-column-width:@cw;
+	-webkit-column-gap:@cg;
+	-moz-column-width:@cw;
+	-moz-column-gap:@cg;
+	column-width:@cw;
+	column-gap:@cg;
+}
+
+.wrapper li  { 
+	height:68px;
+	width: 100%;
+	// background:#ccc;
+	// margin:16px 0;
+}
+.filtersByType{
+	padding-top: 15px;
+	// border-radius: 0 12px 0 0;
+	  // width: 150px;
+}
+
+.checkbox:hover{
+	  color: black;
+}
+/*
+ Keep in mind that you want to combine both CSS
+ classes together to avoid any CSS-specificity
+ conflicts
+*/
+.animate-enter-setup.animate-enter-start {
+   /* The animation code itself */
+   opacity: 1;
+}
+.animate-enter-setup {
+   -webkit-transition: 1s linear all; /* Safari/Chrome */
+   -moz-transition: 1s linear all; /* Firefox */
+   -ms-transition: 1s linear all; /* IE10 */
+   -o-transition: 1s linear all; /* Opera */
+   transition: 1s linear all; /* Future Browsers */
+   /* The animation preparation code */
+   opacity: 0;
+   less:-150px;
+}

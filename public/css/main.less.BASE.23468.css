@@ -1,0 +1,135 @@
+/* Desktops and laptops ----------- */
+@media only screen and (max-width: 1224px) {
+  .filtersByType {
+    width: 300px;
+    left: 0;
+    float: left;
+  }
+  .filtersByType > ul > li > a {
+    display: inherit;
+  }
+}
+/* 
+
+	main.css 
+	-------
+   
+*/
+* {
+  -webkit-transition: all 0.77s ease-in-out;
+  -moz-transition: all 0.77s ease-in-out;
+  -ms-transition: all 0.77s ease;
+  -o-transition: all 0.77s ease-in-out;
+  transition: all 0.77s ease-in-out;
+}
+td.Name {
+  background-color: #d35400;
+  height: 20px;
+}
+h3 {
+  padding: 0;
+  margin: 0;
+}
+thead {
+  position: fixed;
+  top: 429px;
+  z-index: 3;
+}
+table.results {
+  margin-top: 47px;
+}
+td {
+  text-align: center;
+  border-width: 1px;
+  border-color: black;
+  border-style: hidden hidden bottom;
+}
+.palette,
+.palette-info {
+  width: 100px;
+}
+body {
+  background-color: #ECF0F1;
+}
+.todo-search-field.ng-valid.ng-dirty {
+  width: 100%;
+}
+#program_count {
+  border-radius: 18px 0 0 18px;
+  position: absolute;
+  width: 315px;
+}
+#program_count > * {
+  position: fixed;
+  top: 300px;
+  right: 0;
+}
+.filtersByType {
+  padding-top: 15px;
+  border-radius: 0 12px 0 0;
+  position: relative;
+  width: 300px;
+}
+.view1 {
+  display: none;
+}
+.container {
+  max-width: 660px;
+  margin: 30px 30% 0 30% ;
+}
+.nav > li {
+  line-height: 3.3em;
+}
+.checkboxText:hover {
+  color: black;
+}
+.checkbox .icon,
+.checkbox .icon-to-fade,
+.radio .icon,
+.radio .icon-to-fade {
+  opacity: 1;
+  background-color: black;
+}
+.inner {
+  width: 100px;
+  background-color: #ECF0F1;
+  border-bottom: 1px solid white;
+  border-right: 1px solid white;
+}
+.checkbox:hover {
+  color: black;
+}
+#content-width {
+  right: 0;
+}
+/*
+ Keep in mind that you want to combine both CSS
+ classes together to avoid any CSS-specificity
+ conflicts
+*/
+.animate-enter-setup.animate-enter-start {
+  /* The animation code itself */
+
+  opacity: 1;
+}
+.animate-enter-setup {
+  -webkit-transition: 1s linear all;
+  /* Safari/Chrome */
+
+  -moz-transition: 1s linear all;
+  /* Firefox */
+
+  -ms-transition: 1s linear all;
+  /* IE10 */
+
+  -o-transition: 1s linear all;
+  /* Opera */
+
+  transition: 1s linear all;
+  /* Future Browsers */
+
+  /* The animation preparation code */
+
+  opacity: 0;
+  less: -150px;
+}

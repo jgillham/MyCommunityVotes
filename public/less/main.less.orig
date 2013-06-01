@@ -1,0 +1,162 @@
+// Core variables and mixins
+@import "variables.less";
+/* Desktops and laptops ----------- */
+@media only screen and (max-width : 1224px) {
+<<<<<<< HEAD
+  .filtersByType{
+	width: 300px;
+	left: 0;
+	float: left;
+  }
+  .filtersByType > ul > li > a{
+	display: inherit;
+  }
+=======
+
+>>>>>>> csv2
+}
+/* 
+
+  main.css 
+  -------
+   
+*/
+
+// widths will either be 630 or 960 px
+// left link bar is 250 px
+*{
+	-webkit-transition: all @animation_time ease-in-out;
+	-moz-transition: all @animation_time ease-in-out;
+	-ms-transition: all @animation_time ease;
+	-o-transition: all @animation_time ease-in-out;
+	transition: all @animation_time ease-in-out;
+}
+.container{
+  	max-width: @content_width;
+  // margin: 30px 30% 0 30% ;
+}
+/* 
+
+  table style
+  --------
+   
+*/
+thead#categories{
+ 	// position: fixed;
+  	padding: 0;
+  	margin: 0;
+}
+thead{
+  	position: fixed;
+}
+td.Major{
+  	background-color: #E74C3C;
+}
+
+.inner{
+  	width: @bw;
+  	background-color: #ECF0F1;
+  	border-bottom: 1px solid white;
+  	border-right: 1px solid white;
+}
+thead {
+}
+tbody{
+  	top: 150px;
+ 	// table-layout: fixed;
+ 	 width: 100%;
+}
+thead > tr{
+  	max-width: @content_width;
+}
+thead > tr > th {
+  
+	width: 100px;
+	word-wrap: break-word;
+	max-width:@bw;
+}
+thead > tr > th {
+	width: 1px;
+	word-wrap: break-word;
+	max-width:@bw;
+}
+td{
+	text-align: center;
+	border-width: 1px;
+	border-color: black;
+	border-style: hidden 
+	hidden bottom;  
+}
+/* 
+
+  search 
+  -----
+   
+*/
+.todo{
+  	width: 100%;
+}
+.todo-search-field.ng-valid.ng-dirty {
+	  width: 100%;
+}
+/* 
+
+  floating purple box 
+  ---------------
+   
+*/
+#program_count {
+	  border-radius: 18px 0 0 18px;
+	  position: absolute;
+	  width: 315px;
+}
+#program_count > *{
+	  position: fixed;
+	  top: 300px;
+	  right:0;
+}
+/* 
+
+  filter by type box 
+  --------------
+   
+*/
+.filtersByType{
+	  padding-top: 15px;
+	  border-radius: 0 12px 0 0;
+	  position: relative;
+	  width: 150px;
+}
+ .checkbox .icon,
+  .checkbox .icon-to-fade,
+  .radio .icon,
+  .radio .icon-to-fade {
+	opacity: 1;
+	background-color: black;
+  }
+.checkbox:hover{
+	  color: black;
+}
+/*
+ Keep in mind that you want to combine both CSS
+ classes together to avoid any CSS-specificity
+ conflicts
+*/
+.animate-enter-setup.animate-enter-start {
+   /* The animation code itself */
+   opacity: 1;
+}
+.animate-enter-setup {
+   -webkit-transition: 1s linear all; /* Safari/Chrome */
+   -moz-transition: 1s linear all; /* Firefox */
+   -ms-transition: 1s linear all; /* IE10 */
+   -o-transition: 1s linear all; /* Opera */
+   transition: 1s linear all; /* Future Browsers */
+   /* The animation preparation code */
+   opacity: 0;
+   less:-150px;
+<<<<<<< HEAD
+}
+=======
+}
+>>>>>>> csv2
