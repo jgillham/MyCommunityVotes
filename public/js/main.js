@@ -65,13 +65,18 @@
       return setParse(data);
     });
     return setParse = function(dataset) {
-      var coordinates, datum, descriptions, _i, _len, _results;
-      coordinates = [];
-      descriptions = [];
+      var coor, d, description, link, type, _i, _len, _results;
       _results = [];
       for (_i = 0, _len = dataset.length; _i < _len; _i++) {
-        datum = dataset[_i];
-        _results.push(L.marker(datum["Map coordinates"].split(",")).addTo(map).bindPopup("<b>" + datum["description"] + "</b><br/>I am a popup.").openPopup());
+        d = dataset[_i];
+        if (d["Map coordinates"] === void 0) {
+          continue;
+        }
+        coor = d["Map coordinates"].split(",");
+        description = d["description"];
+        type = d["type"];
+        link = d["link"];
+        _results.push(L.marker(coor).addTo(map).bindPopup("<b>" + description + "</b><br>" + type + "<br>" + "<a href='" + link + "'>" + "Taken from" + "</a>").openPopup());
       }
       return _results;
     };

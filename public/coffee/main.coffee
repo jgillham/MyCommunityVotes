@@ -1,10 +1,7 @@
 $ ->
 	denver = [39.7334624,-104.9924559]
-	
 
 	map = L.map('map').setView(denver, 14);
-
-	# console.dir map
 
 	L.tileLayer('http://{s}.tile.cloudmade.com/BC9A493B41014CAABB98F0471D759707/997/256/{z}/{x}/{y}.png',
 		maxZoom: 18,
@@ -73,25 +70,18 @@ $ ->
 		setParse(data)
 
 	setParse = (dataset) ->
-		coordinates = []
-		descriptions= []
-		for datum in dataset
-			# coordinates.push(datum["Map coordinates"].split(","))
-			# descriptions.push(datum["description"])
-					L.marker(datum["Map coordinates"].split(",")).addTo(map).bindPopup("<b>"+ datum["description"] + "</b><br/>I am a popup.").openPopup()
-			
-		# for d in descriptions
-		# 	for c in coordinates
-		# 			L.marker(c).addTo(map).bindPopup("<b>"+ d + "</b><br/>I am a popup.").openPopup()
-		
-		
-
-
-
-
-
-	# for i in datapoints
-	# 		log i["Map coordinates"]
+		for d in dataset
+				if d["Map coordinates"] == undefined then continue 
+				coor = d["Map coordinates"].split(",")		
+				description = d["description"]
+				type = d["type"]
+				link = d["link"]
+				L.marker(coor).
+					addTo(map).bindPopup(
+						"<b>"+ description + "</b><br>" + type + "<br>" + "<a href='" + link + "'>" + "Taken from" + "</a>").
+					openPopup()
+					
+	# map.panTo(new L.LatLng(40.737, -73.923));
 
 # datapoints.datum = new Array datum["Map coordinates"].split(",")	
 # console.dir(datapoints)
