@@ -65,21 +65,30 @@ $ ->
 		).addTo(map).bindPopup("Housing Project");
 
 
-	d3.csv "/dataset/data.csv", (err, data) -> 
+	d3.csv "/dataset/data.csv", (err, comments) -> 
 		if err then throw(err)
-		setParse(data)
+		parseComments(comments)
 
-	setParse = (dataset) ->
+	d3.csv "/dataset/comments.csv", (err, data) -> 
+		if err then throw(err)
+		parseData(data)
+
+	parseComments = (comments) -> 
+		# for c in comments
+
+
+	parseData = (dataset) ->
 		for d in dataset
 				if d["Map coordinates"] == undefined then continue 
 				coor = d["Map coordinates"].split(",")		
-				description = d["description"]
+				desc = d["description"]
 				type = d["type"]
 				link = d["link"]
 				L.marker(coor).
-					addTo(map).bindPopup(
-						"<b>"+ description + "</b><br>" + type + "<br>" + "<a href='" + link + "'>" + "Taken from" + "</a>").
-					openPopup()
+					addTo(map).
+					bindPopup(
+						"<b>"+ desc + "</b><br>" + type + "<br>" + "<a href='" + link + "'>" + "Taken from" + "</a>"
+					).openPopup()
 					
 	# map.panTo(new L.LatLng(40.737, -73.923));
 

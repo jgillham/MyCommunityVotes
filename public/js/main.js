@@ -2,7 +2,7 @@
 (function() {
 
   $(function() {
-    var denver, map, setParse;
+    var denver, map, parseComments, parseData;
     denver = [39.7334624, -104.9924559];
     map = L.map('map').setView(denver, 14);
     L.tileLayer('http://{s}.tile.cloudmade.com/BC9A493B41014CAABB98F0471D759707/997/256/{z}/{x}/{y}.png', {
@@ -58,14 +58,21 @@
       fillColor: '#f03',
       fillOpacity: 0.5
     }).addTo(map).bindPopup("Housing Project");
-    d3.csv("/dataset/data.csv", function(err, data) {
+    d3.csv("/dataset/data.csv", function(err, comments) {
       if (err) {
         throw err;
       }
-      return setParse(data);
+      return parseComments(comments);
     });
-    return setParse = function(dataset) {
-      var coor, d, description, link, type, _i, _len, _results;
+    d3.csv("/dataset/comments.csv", function(err, data) {
+      if (err) {
+        throw err;
+      }
+      return parseData(data);
+    });
+    parseComments = function(comments) {};
+    return parseData = function(dataset) {
+      var coor, d, desc, link, type, _i, _len, _results;
       _results = [];
       for (_i = 0, _len = dataset.length; _i < _len; _i++) {
         d = dataset[_i];
@@ -73,10 +80,10 @@
           continue;
         }
         coor = d["Map coordinates"].split(",");
-        description = d["description"];
+        desc = d["description"];
         type = d["type"];
         link = d["link"];
-        _results.push(L.marker(coor).addTo(map).bindPopup("<b>" + description + "</b><br>" + type + "<br>" + "<a href='" + link + "'>" + "Taken from" + "</a>").openPopup());
+        _results.push(L.marker(coor).addTo(map).bindPopup("<b>" + desc + "</b><br>" + type + "<br>" + "<a href='" + link + "'>" + "Taken from" + "</a>").openPopup());
       }
       return _results;
     };
