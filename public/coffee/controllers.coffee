@@ -1,6 +1,7 @@
 
 list = {}
 list.all = []
+list.percentages = []
 list.comments = []
 communityApp = angular.module "communityApp", []
 
@@ -9,11 +10,16 @@ communityApp.controller "projects", ($scope, $http) ->
 		list.all = d3.csv.parse data 
 		$scope.list = list.all 
 
+
 	$http.get('/dataset/comments.csv').success (data) ->
 		list.comments = d3.csv.parse data  
-		inspectEmpty = ->
+		# inspectEmpty = ->
 		$scope.comments = list.comments
 
+	parsePercent = (data) ->
+		# for i in data
+
+	
 	$scope.plusone = ($event) ->
 		vote = $event.currentTarget.innerText
 		log vote += 1

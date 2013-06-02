@@ -6,21 +6,23 @@
 
   list.all = [];
 
+  list.percentages = [];
+
   list.comments = [];
 
   communityApp = angular.module("communityApp", []);
 
   communityApp.controller("projects", function($scope, $http) {
+    var parsePercent;
     $http.get('/dataset/projects.csv').success(function(data) {
       list.all = d3.csv.parse(data);
       return $scope.list = list.all;
     });
     $http.get('/dataset/comments.csv').success(function(data) {
-      var inspectEmpty;
       list.comments = d3.csv.parse(data);
-      inspectEmpty = function() {};
       return $scope.comments = list.comments;
     });
+    parsePercent = function(data) {};
     $scope.plusone = function($event) {
       var vote;
       vote = $event.currentTarget.innerText;

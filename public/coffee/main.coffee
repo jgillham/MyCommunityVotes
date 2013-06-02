@@ -1,8 +1,13 @@
 $ ->
-	$("#map").prop("onclick", false);
+
+	percentages = []
 	denver = [39.7334624,-104.9924559]
 
-	map = L.map('map').setView(denver, 14);
+	map = L.map('map', {
+		center: denver
+		}).setView(denver, 14);
+	scaleControl = new L.Control.Scale({ position:'bottomleft'})
+	scaleControl.addTo(map);
 
 	L.tileLayer('http://{s}.tile.cloudmade.com/BC9A493B41014CAABB98F0471D759707/997/256/{z}/{x}/{y}.png',
 		maxZoom: 18,
@@ -18,11 +23,11 @@ $ ->
 			L.marker(denver).addTo(map)
 				.bindPopup("<b>Welcome to community votes!</b>").openPopup();
 
-			L.circle(denver, 500, {
-				color: 'red',
-				fillColor: '#f03',
-				fillOpacity: 0.5
-			}).addTo(map).bindPopup("I am a circle.");
+			// L.circle(denver, 500, {
+			// 	color: 'red',
+			// 	fillColor: '#f03',
+			// 	fillOpacity: 0.5
+			// }).addTo(map).bindPopup("I am a circle.");
 
 			 L.polygon([
 			 	[51.509, -0.08],
@@ -42,38 +47,47 @@ $ ->
 
 			map.on('click', onMapClick);
 	`
-	L.circle(
-		[
-			denver[0] , 
-			denver[1] + 0.010], 
-			250, 
-			{
-				color: 'blue',
-				fillColor: '#f03',
-				fillOpacity: 0.5
-			}
-		).addTo(map).bindPopup("Housing Project");
+	# L.circle(
+	# 	[
+	# 		denver[0] , 
+	# 		denver[1] + 0.010], 
+	# 		250, 
+	# 		{
+	# 			color: 'blue',
+	# 			fillColor: '#f03',
+	# 			fillOpacity: 0.5
+	# 		}
+	# 	).addTo(map).bindPopup("Housing Project");
 
-	d3.csv "/dataset/data.csv", (err, data) -> 
+	d3.csv "/dataset/projects.csv", (err, data) -> 
 		if err then throw(err)
 		parseData(data)
 
-
-
-
 	parseData = (dataset) ->
+
 		for d in dataset
 				if d["Map coordinates"] == undefined then continue 
 				coor = d["Map coordinates"].split(",")		
 				desc = d["description"]
 				type = d["type"]
 				link = d["link"]
+				percentage = d['Percent']
+				
 				L.marker(coor).
 					addTo(map).
-					bindPopup(
-						"<b>"+ desc + "</b><br>" + type + "<br>" + "<a href='" + link + "'>" + "Taken from" + "</a>"
-					)
-	denver = [39.7334624,-104.9924559]			
+					bindPopup("<b>"+ desc + "</b><br>" + type + "<br>" + "<a href='" + link + "'>" + "Taken from" + "</a>")
+
+				L.circle(coor, 250, {
+					color: 'red',
+					fillColor: '#f03',
+					fillOpacity: 0.1
+				}).addTo(map).bindPopup(percentage)
+
+
+		
+
+	denver = [39.7334624,-104.9924559]	
+	
 	
 	# L.marker([denver[0] + 0.25 , 
 	# 		denver[1] + 0.10]).addTo(map).bindPopup("<img id='logo' src='img/logo.png'>").openPopup()
