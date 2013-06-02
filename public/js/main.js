@@ -18,7 +18,7 @@
 
 
 			L.marker(denver).addTo(map)
-				.bindPopup("<b>Welcome to community votes!</b><br />I am a popup.").openPopup();
+				.bindPopup("<b>Welcome to community votes!</b>").openPopup();
 
 			L.circle(denver, 500, {
 				color: 'red',
@@ -51,11 +51,11 @@
       fillColor: '#f03',
       fillOpacity: 0.5
     }).addTo(map).bindPopup("Housing Project");
-    d3.csv("/dataset/data.csv", function(err, comments) {
+    d3.csv("/dataset/data.csv", function(err, data) {
       if (err) {
         throw err;
       }
-      return parseComments(comments);
+      return parseData(data);
     });
     parseComments = function(comments) {};
     return parseData = function(dataset) {
@@ -70,7 +70,7 @@
         desc = d["description"];
         type = d["type"];
         link = d["link"];
-        _results.push(L.marker(coor).addTo(map).bindPopup("<b>" + desc + "</b><br>" + type + "<br>" + "<a href='" + link + "'>" + "Taken from" + "</a>").openPopup());
+        _results.push(L.marker(coor).addTo(map).bindPopup("<b>" + desc + "</b><br>" + type + "<br>" + "<a href='" + link + "'>" + "Taken from" + "</a>"));
       }
       return _results;
     };

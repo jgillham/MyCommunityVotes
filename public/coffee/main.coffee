@@ -16,7 +16,7 @@ $ ->
 
 
 			L.marker(denver).addTo(map)
-				.bindPopup("<b>Welcome to community votes!</b><br />I am a popup.").openPopup();
+				.bindPopup("<b>Welcome to community votes!</b>").openPopup();
 
 			L.circle(denver, 500, {
 				color: 'red',
@@ -57,9 +57,9 @@ $ ->
 			}
 		).addTo(map).bindPopup("Housing Project");
 
-	d3.csv "/dataset/data.csv", (err, comments) -> 
+	d3.csv "/dataset/data.csv", (err, data) -> 
 		if err then throw(err)
-		parseComments(comments)
+		parseData(data)
 
 	
 
@@ -78,7 +78,7 @@ $ ->
 					addTo(map).
 					bindPopup(
 						"<b>"+ desc + "</b><br>" + type + "<br>" + "<a href='" + link + "'>" + "Taken from" + "</a>"
-					).openPopup()
+					)
 	denver = [39.7334624,-104.9924559]			
 	
 	# L.marker([denver[0] + 0.25 , 

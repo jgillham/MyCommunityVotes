@@ -1,50 +1,15 @@
 extends layout
 
 block content
-	//- div
-	//- 	img(id="logo", src="img/logo.png")
 	div#map
-	.container-narrow
-		.masthead
+	.container-narrow.masthead
 			ul.nav.nav-pills.pull-right
 				li.active
-					a(href='#') Home
-				li
-					a(href='#') Create a Project
-				li
-					a(href='#') Open Projects
+					a(href='/') Home
+				li.active
+					a(href='/details')  Projects
 			hr.jumbotron
-			h1 MyCommunityVotes
+			h1 My Community Votes
 		a.btn.btn-large.btn-success(href='project.html')
 			| Add a Project
-		hr
-		.row-fluid.marketing
-			.span6
-				h3 Top Projects
-			.well
-				h4 Project 1
-				p
-					| Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.
-					.well
-				h4 Project 2
-			p
-					| Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.
-					.well
-			h4 Project 3
-			p Maecenas sed diam eget risus varius blandit sit amet non magna.
-			.span6
-			h3 Most Active Communities
-			.well
-			h4 Top Community 1
-			p
-				| Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.
-			.well
-			h4 Top Community 1
-			p
-				| Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.
-			.well
-			h4 Top Community 1
-			p Maecenas sed diam eget risus varius blandit sit amet non magna.
-			hr
-			.footer
-			p © My comminity Votes
+		
