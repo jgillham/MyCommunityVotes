@@ -41,10 +41,7 @@ $ ->
 			}
 
 			map.on('click', onMapClick);
-
 	`
-
-
 	L.circle(
 		[
 			denver[0] , 
@@ -61,10 +58,7 @@ $ ->
 		if err then throw(err)
 		parseData(data)
 
-	
 
-	parseComments = (comments) -> 
-		# for c in comments
 
 
 	parseData = (dataset) ->

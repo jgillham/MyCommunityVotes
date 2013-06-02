@@ -20,10 +20,10 @@ exports.map = function(req, res){
 
 };
 exports.details = function(req, res){
-  // res.send("respond with maps !!!!!");
   fs.readFile("public/details.html", function(err, data){
+  		if(err) throw new Error(err);
 		res.writeHead(200, {'Content-Type': 'text/html'});
-		res.end(data)
+		res.end(data);
 	});
 
 };

@@ -6,12 +6,18 @@
 
   list.all = [];
 
+  list.comments = [];
+
   communityApp = angular.module("communityApp", []);
 
-  communityApp.controller("comments", function($scope, $http) {
-    $http.get('/dataset/comments.csv').success(function(data) {
+  communityApp.controller("projects", function($scope, $http) {
+    $http.get('/dataset/projects.csv').success(function(data) {
       list.all = d3.csv.parse(data);
       return $scope.list = list.all;
+    });
+    $http.get('/dataset/comments.csv').success(function(data) {
+      list.comments = d3.csv.parse(data);
+      return $scope.comments = list.comments;
     });
     $scope.plusone = function($event) {
       var vote;
@@ -23,7 +29,7 @@
         return $event.currentTarget.innerText++;
       }
     };
-    return $scope.minusone = function($event) {
+    $scope.minusone = function($event) {
       var vote;
       vote = $event.currentTarget.innerText;
       log(vote += 1);
@@ -31,6 +37,11 @@
 
       } else {
         return $event.currentTarget.innerText++;
+      }
+    };
+    return $scope.display = function(comment) {
+      if (typeof comment === void 0) {
+        return log(comment);
       }
     };
   });

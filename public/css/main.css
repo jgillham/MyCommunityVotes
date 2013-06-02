@@ -57,6 +57,19 @@ body {
   width: 30%;
   text-align: center;
 }
+#upvote,
+#downvote {
+  font-size: 1em;
+  width: 30%;
+  text-align: center;
+}
 #total {
   background-color: #1ABC9C;
+}
+#comment {
+  padding-left: 15px;
+  margin-left: 0;
+  background-color: #adffd3;
+  width: 150px;
+  margin-top: 15px;
 }

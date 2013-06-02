@@ -3,7 +3,7 @@
   var denver;
 
   $(function() {
-    var denver, map, parseComments, parseData;
+    var denver, map, parseData;
     $("#map").prop("onclick", false);
     denver = [39.7334624, -104.9924559];
     map = L.map('map').setView(denver, 14);
@@ -43,7 +43,6 @@
 			}
 
 			map.on('click', onMapClick);
-
 	;
 
     L.circle([denver[0], denver[1] + 0.010], 250, {
@@ -57,7 +56,6 @@
       }
       return parseData(data);
     });
-    parseComments = function(comments) {};
     return parseData = function(dataset) {
       var coor, d, desc, link, type, _i, _len, _results;
       _results = [];

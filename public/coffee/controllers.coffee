@@ -1,14 +1,17 @@
 
 list = {}
 list.all = []
+list.comments = []
 communityApp = angular.module "communityApp", []
 
-communityApp.controller "comments", ($scope, $http) -> 
-	$http.get('/dataset/comments.csv').success (data) ->
+communityApp.controller "projects", ($scope, $http) -> 
+	$http.get('/dataset/projects.csv').success (data) ->
 		list.all = d3.csv.parse data 
 		$scope.list = list.all 
 
-
+	$http.get('/dataset/comments.csv').success (data) ->
+		list.comments = d3.csv.parse data 
+		$scope.comments = list.comments
 
 	$scope.plusone = ($event) ->
 		vote = $event.currentTarget.innerText
@@ -25,3 +28,9 @@ communityApp.controller "comments", ($scope, $http) ->
 			return
 		else
 			$event.currentTarget.innerText++
+
+		
+	$scope.display = (comment) ->
+		if typeof comment is undefined then log comment 			
+
+		
