@@ -1,4 +1,5 @@
 $ ->
+	$("#map").prop("onclick", false);
 	denver = [39.7334624,-104.9924559]
 
 	map = L.map('map').setView(denver, 14);
@@ -43,14 +44,6 @@ $ ->
 
 	`
 
-	`
-	var circle = L.circle(denver, 500, {
-	    color: 'red',
-	    fillColor: '#f03',
-	    fillOpacity: 0.5
-	}).addTo(map);
-
-	`
 
 	L.circle(
 		[
@@ -64,14 +57,11 @@ $ ->
 			}
 		).addTo(map).bindPopup("Housing Project");
 
-
 	d3.csv "/dataset/data.csv", (err, comments) -> 
 		if err then throw(err)
 		parseComments(comments)
 
-	d3.csv "/dataset/comments.csv", (err, data) -> 
-		if err then throw(err)
-		parseData(data)
+	
 
 	parseComments = (comments) -> 
 		# for c in comments
@@ -89,6 +79,10 @@ $ ->
 					bindPopup(
 						"<b>"+ desc + "</b><br>" + type + "<br>" + "<a href='" + link + "'>" + "Taken from" + "</a>"
 					).openPopup()
+	denver = [39.7334624,-104.9924559]			
+	
+	# L.marker([denver[0] + 0.25 , 
+	# 		denver[1] + 0.10]).addTo(map).bindPopup("<img id='logo' src='img/logo.png'>").openPopup()
 					
 	# map.panTo(new L.LatLng(40.737, -73.923));
 
