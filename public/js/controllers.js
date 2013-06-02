@@ -16,7 +16,9 @@
       return $scope.list = list.all;
     });
     $http.get('/dataset/comments.csv').success(function(data) {
+      var inspectEmpty;
       list.comments = d3.csv.parse(data);
+      inspectEmpty = function() {};
       return $scope.comments = list.comments;
     });
     $scope.plusone = function($event) {

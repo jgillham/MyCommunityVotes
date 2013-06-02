@@ -10,7 +10,8 @@ communityApp.controller "projects", ($scope, $http) ->
 		$scope.list = list.all 
 
 	$http.get('/dataset/comments.csv').success (data) ->
-		list.comments = d3.csv.parse data 
+		list.comments = d3.csv.parse data  
+		inspectEmpty = ->
 		$scope.comments = list.comments
 
 	$scope.plusone = ($event) ->
@@ -29,7 +30,7 @@ communityApp.controller "projects", ($scope, $http) ->
 		else
 			$event.currentTarget.innerText++
 
-		
+
 	$scope.display = (comment) ->
 		if typeof comment is undefined then log comment 			
 
