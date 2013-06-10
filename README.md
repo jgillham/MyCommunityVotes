@@ -1,2 +1,2 @@
-HACK4COlORADO team initiative. 
+HACK4COLORADO team initiative. 
 
